@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 静态资源
+import './style/index.scss'
+
 const app = createApp(App)
 app.use(router)
 app.use(store)
