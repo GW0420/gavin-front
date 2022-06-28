@@ -1,18 +1,17 @@
 <template>
-  <MobileNavigationBar v-if="isMobileTerminal" />
+  <MobileNavigationBar v-if="isMobileTerminal" :data="categoryData" />
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref } from 'vue'
 import { isMobileTerminal } from '@/utils/flexible'
 import MobileNavigationBar from './mobile/index.vue'
 import { getCategory } from '@/api/category'
 
+const categoryData = ref([])
 const getCategoryData = async () => {
-  const res = await getCategory()
+  const { categorys } = await getCategory()
+  categoryData.value = categorys
 }
-
-onMounted(() => {
-  getCategoryData()
-})
+getCategoryData()
 </script>

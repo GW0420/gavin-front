@@ -1,3 +1,16 @@
 <template>
-  <div>我是移动端下的 navigationBar</div>
+  <div class="bg-white sticky top-10 left-0 z-10">
+    <ul class="relative flex overflow-x-auto p-1 text-xs text-zinc-600 overflow-hidden">
+      <li class="shrink-0 px-1.5 py-0.5 z-10 duration-200" v-for="item in data" :key="item.id">{{ item.name }}</li>
+    </ul>
+  </div>
 </template>
+
+<script setup>
+defineProps({
+  data: {
+    type: Array,
+    required: true
+  }
+})
+</script>

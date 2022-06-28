@@ -13,4 +13,15 @@ service.interceptors.request.use(config => {
   return config
 })
 
+// 响应拦截器
+service.interceptors.response.use(response => {
+  const { success, message, data } = response.data
+  // 根据 success成功与否决定下面的操作
+  if (success) {
+    return data
+  } else {
+    // TODO: 业务错误
+    return Promise.reject(new Error(message))
+  }
+})
 export default service
