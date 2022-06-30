@@ -1,0 +1,26 @@
+// msk 展示动画
+.mask-enter-active {
+  transition: all 0.3s;
+}
+
+.mask-leave-active {
+  transition: all 0.3s;
+}
+
+.mask-enter-from,
+.mask-leave-to {
+  opacity: 0;
+}
+// popup 展示动画
+.popup-enter-active {
+  transition: all 0.3s;
+}
+
+.popup-leave-active {
+  transition: all 0.3s;
+}
+
+.popup-enter-from,
+.popup-leave-to {
+  transform: translateY(100%);
+}

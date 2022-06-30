@@ -1,4 +1,7 @@
-/* ./src/index.scss */
+// tailwindcss 全局默认样式， 类似于 reset.scss
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// 动画样式
+@import './transition.scss';

@@ -5,7 +5,7 @@
       <li ref="sliderTarget" class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200" :style="sliderStyle"></li>
       <!-- 汉堡按钮 -->
       <li class="z-20 fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white shadow-l-white">
-        <gw-icon class="w-1.5 h-1.5" name="hamburger"></gw-icon>
+        <gw-icon class="w-1.5 h-1.5" name="hamburger" @click="isOpenPopup = !isOpenPopup"></gw-icon>
       </li>
       <!-- category item -->
       <li
@@ -19,6 +19,11 @@
         {{ item.name }}
       </li>
     </ul>
+    <gw-popup v-model:popupModel="isOpenPopup">
+      <template #popup>
+        <div>www</div>
+      </template>
+    </gw-popup>
   </div>
 </template>
 
@@ -71,4 +76,7 @@ watch(currentCategoryIndex, val => {
 const onItemClick = index => {
   currentCategoryIndex.value = index
 }
+
+// popup 展示
+const isOpenPopup = ref(false)
 </script>
