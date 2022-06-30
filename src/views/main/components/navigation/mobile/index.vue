@@ -21,7 +21,7 @@
     </ul>
     <gw-popup v-model:popupModel="isOpenPopup">
       <template #popup>
-        <div>www</div>
+        <MenuCategory :categorys="data" @onItemClick="onItemClick"></MenuCategory>
       </template>
     </gw-popup>
   </div>
@@ -30,6 +30,7 @@
 <script setup>
 import { ref, onBeforeUpdate, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
+import MenuCategory from '@/views/main/components/menu/index.vue'
 
 defineProps({
   data: {
@@ -71,10 +72,16 @@ watch(currentCategoryIndex, val => {
     transform: `translateX(${ulScrollLeft.value + left - parseInt(paddingLeft) + 'px'})`,
     width: width + 'px'
   }
+  // navigation显示以外的目录，滚动条自动滚动
+  if (isOpenPopup.value) {
+    isOpenPopup.value = false
+    ulTarget.value.scrollLeft = left + ulTarget.value.scrollLeft
+  }
 })
 // item 点击事件
 const onItemClick = index => {
   currentCategoryIndex.value = index
+  // isOpenPopup.value = false
 }
 
 // popup 展示
