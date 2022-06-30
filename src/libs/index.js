@@ -1,7 +1,13 @@
-import SvgIcon from './SvgIcon/index.vue'
-import Popup from './Popup/index.vue'
+import { defineAsyncComponent } from 'vue'
 
 export default function (app) {
-  app.component('gw-icon', SvgIcon)
-  app.component('gw-popup', Popup)
+  // 获取当前路径任意文件夹下的 index.vue 文件
+  const components = import.meta.glob('./*/index.vue')
+  // 遍历获取到的组件模块
+  for (const [key, value] of Object.entries(components)) {
+    // 拼接组件注册的 name
+    const componentName = 'gw-' + key.replace('./', '').split('/')[0]
+    // 通过 defineAsyncComponent 异步导入指定路径下的组件
+    app.component(componentName, defineAsyncComponent(value))
+  }
 }
