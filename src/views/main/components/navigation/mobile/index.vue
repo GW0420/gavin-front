@@ -81,7 +81,6 @@ watch(currentCategoryIndex, val => {
 // item 点击事件
 const onItemClick = index => {
   currentCategoryIndex.value = index
-  // isOpenPopup.value = false
 }
 
 // popup 展示
