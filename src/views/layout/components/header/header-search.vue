@@ -1,5 +1,7 @@
 <template>
-  <div>search</div>
+  <div class="w-full">
+    <gw-search></gw-search>
+  </div>
 </template>
 
 <script setup></script>
