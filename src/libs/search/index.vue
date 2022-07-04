@@ -19,6 +19,7 @@
         class="opacity-0 h-1.5 w-[1px] absolute translate-y-[-50%] top-[50%] right-[62px] duration-500 bg-zinc-200 group-hover:opacity-100"
       ></div>
       <!-- TODO: 搜索按钮(通用组件) -->
+      <gw-button class="absolute translate-y-[-50%] top-[50%] right-1" icon="search" iconColor="#ffffff"></gw-button>
     </div>
     <!-- 下拉区 -->
     <transition name="slide">
