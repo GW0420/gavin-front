@@ -120,7 +120,6 @@ const sizeKey = computed(() => {
 
 // 按钮点击事件处理
 const onBtnClick = () => {
-  console.log(props.loading)
   if (props.loading) {
     return
   }
